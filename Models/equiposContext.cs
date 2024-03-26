@@ -13,5 +13,6 @@ namespace MVC_practica09_EsmeraldaGarcia.Models
         }
 
         public DbSet<marcas> marcas { get; set; }
+        public DbSet<equipos> equipos { get; set; }
     }
 }
