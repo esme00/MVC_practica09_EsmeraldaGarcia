@@ -5,7 +5,7 @@
 
     <h1>Mantenimiento de Equipos</h1>
     <br />
-    <form>
+    <form asp-action="CrearEquipos">
         @*Inicio del Formulario*@
         <div class="form-group row mb-4">
             <div class="col-sm-2">
@@ -30,6 +30,33 @@
             <div class="col-sm-4">
             @Html.DropDownList("marca_id", ViewData["listadoDeMarcas"] as SelectList, "Seleccione una marca", new{@class="form-control"})
             </div>
+            <div class="form-group row mb-4">
+                <div class="col-sm-2">
+                </div>
+                <div class="col-sm-4">
+                    <input type="submit" class="btn-primary" value="Guardar" />
+                </div>
+            </div>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Equipo</th>
+                        <th>Descripción</th>
+                        <th>Marca</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var equipo in (IEnumerable<dynamic>)ViewData["listadodeequipo"])
+                    {
+                        <tr>
+                            <td>@equipo.nombre</td>
+                            <td>@equipo.descripcion</td>
+                            <td>@equipo.marca_nombre</td>
+                        </tr>
+                       
+                    }
+                </tbody>
+            </table>
 
 
         </div>

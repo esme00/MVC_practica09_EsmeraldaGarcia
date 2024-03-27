@@ -9,9 +9,28 @@ namespace MVC_practica09_EsmeraldaGarcia.Controllers
         public IActionResult Index()
         {
             var listaDeMarcas = (from m in _equiposContext.marcas
-                                 select m).ToList();
-            ViewData["listadoDeMarcas"] = new SelectList(listaDeMarcas, "marca_id", "nombre_marca");
-            return View();
+                                select m).ToList();
+           ViewData["listadoDeMarcas"] = new SelectList(listaDeMarcas, "marca_id", "nombre_marca");
+
+
+            var listadodeequipo = (from e in  _equiposContext.equipos
+                                   join m in _equiposContext.marcas  on e.marca_id equals m.marca_id
+                                   select new{
+                nombre = e.nombre,
+                descripcion = e.descripcion,
+                marca_id = e.marca_id,
+                marca_nombre = m.nombre_marca
+            }).ToList();
+            ViewData["listadodeequipo"] = listadodeequipo;
+
+           return View();
+        }
+        public IActionResult CrearEquipos(equipos nuevoEquipo)
+        {
+            _equiposContext.Add(nuevoEquipo);
+            _equiposContext.SaveChanges();
+
+            return RedirectToAction("Index");
         }
 
         private readonly  equiposContext _equiposContext;   
