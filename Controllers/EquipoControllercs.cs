@@ -6,8 +6,10 @@ namespace MVC_practica09_EsmeraldaGarcia.Controllers
 {
     public class EquipoControllercs : Controller
     {
-        public IActionResult Index()
+        public IActionResult Index() 
         {
+
+
             var listaDeMarcas = (from m in _equiposContext.marcas
                                 select m).ToList();
            ViewData["listadoDeMarcas"] = new SelectList(listaDeMarcas, "marca_id", "nombre_marca");
@@ -25,13 +27,16 @@ namespace MVC_practica09_EsmeraldaGarcia.Controllers
 
            return View();
         }
+
+
         public IActionResult CrearEquipos(equipos nuevoEquipo)
         {
-            _equiposContext.Add(nuevoEquipo);
+            _equiposContext.Add(nuevoEquipo); 
             _equiposContext.SaveChanges();
 
             return RedirectToAction("Index");
         }
+       
 
         private readonly  equiposContext _equiposContext;   
         public  EquipoControllercs(equiposContext equiposcontext) 

@@ -24,12 +24,55 @@
             </div>
             <div class="col-sm-2">
                 <label>
-                    Marcas
-                </label>
+                   Tipo de equipo
+                </label> 
             </div>
             <div class="col-sm-4">
-            @Html.DropDownList("marca_id", ViewData["listadoDeMarcas"] as SelectList, "Seleccione una marca", new{@class="form-control"})
+                @Html.DropDownList("marca_id", ViewData["listadoDeMarcas"] as SelectList, "Seleccione una marca", new { @class = "form-control" })
             </div>
+
+            <div class="row mt-3">
+                <div class="col-sm-2">
+                    <label>
+                        Marcas
+                    </label>
+                </div>
+                <div class="col-sm-4">
+                    @Html.DropDownList("marca_id", ViewData["listadoDeMarcas"] as SelectList, "Seleccione una marca", new { @class = "form-control" })
+                </div>
+                <div class="col-sm-2">
+                    <label>
+                       Modelo
+                    </label>
+                </div>
+                <div class="col-sm-4">
+                    @Html.TextBox("modelo", "", new { @class = "form-control" })
+                </div>
+
+            </div>
+
+            <div class="row  mt-3">
+                <div class="col-sm-2 ">
+                    <label>
+                        Año de compra
+                    </label>
+                </div>
+                <div class="col-sm-4">
+                    @Html.TextBox("anio_compra", "", new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="row  mt-3">
+                <div class="col-sm-2 ">
+                    <label>
+                        Vida Útil
+                    </label>
+                </div>
+                <div class="col-sm-4">
+                    @Html.TextBox("vida_util", "", new { @class = "form-control" })
+                </div>
+            </div>
+             
+
             <div class="form-group row mb-4">
                 <div class="col-sm-2">
                 </div>
