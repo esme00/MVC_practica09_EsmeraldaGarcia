@@ -14,6 +14,10 @@ namespace MVC_practica09_EsmeraldaGarcia.Controllers
                                 select m).ToList();
            ViewData["listadoDeMarcas"] = new SelectList(listaDeMarcas, "marca_id", "nombre_marca");
 
+            var listaDetipo = (from m in _equiposContext.tipo_equipo
+                                 select m).ToList();
+            ViewData["listadotipo"] = new SelectList(listaDetipo, "tipo_equipo_id", "descripcion");
+
             var listaDeEstado = (from m in _equiposContext.marcas
                                  select m).ToList();
             ViewData["listadoEstado"] = new SelectList(listaDeEstado, "marca_id", "estados");
