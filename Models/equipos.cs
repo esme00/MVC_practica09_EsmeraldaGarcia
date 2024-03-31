@@ -17,3 +17,4 @@ namespace MVC_practica09_EsmeraldaGarcia.Models
         public string estado {  get; set; }
     }
 }
+                                                                                                                                                       
