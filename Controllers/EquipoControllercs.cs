@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using MVC_practica09_EsmeraldaGarcia.Models;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace MVC_practica09_EsmeraldaGarcia.Controllers
 {
@@ -37,20 +38,23 @@ namespace MVC_practica09_EsmeraldaGarcia.Controllers
         }
 
 
-        public IActionResult CrearEquipos(equipos nuevoEquipo)
+        public IActionResult CrearEquipos(equipos nuevoEquipo )
         {
             _equiposContext.Add(nuevoEquipo); 
             _equiposContext.SaveChanges();
 
             return RedirectToAction("Index");
         }
-       
+        
+
 
         private readonly  equiposContext _equiposContext;   
         public  EquipoControllercs(equiposContext equiposcontext) 
-        { 
+        {
             _equiposContext = equiposcontext;
         }
+
+       
 
     }
 }
